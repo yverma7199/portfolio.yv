@@ -1,3 +1,8 @@
+:root {
+  --mobile-breakpoint: 768px;
+  --tablet-breakpoint: 1024px;
+}
+
 body {
   background-color: #000000;
   font-family: "Manrope", sans-serif;
@@ -236,28 +241,6 @@ body {
   gap: 80px;
   position: relative;
   margin: 0 0 30px 0;
-}
-
-.education__cards::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 80px;
-  top: 211px;
-  bottom: 0;
-  left: 50%;
-  right: 0;
-  background: #414a5a;
-}
-
-.education__cards::after {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 80px;
-  top: 500px;
-  left: 50%;
-  background: #414a5a;
 }
 
 .education__card {
@@ -574,9 +557,6 @@ body {
   margin: 0;
 }
 
-/* ========== Responsive Styles ========== */
-
-/* Tablets and below (max-width: 1024px) */
 @media (max-width: 1024px) {
   .main__img {
     left: 50%;
@@ -601,77 +581,83 @@ body {
   .contact__box {
     width: 100%;
   }
+
+  .header__dropdown {
+    margin-top: 15px;
+  }
+  
+  .education__cards,
+  .experience__cards {
+    align-items: center;
+  }
+  
+  .projects__box {
+    margin: 0 auto;
+  }
 }
 
-/* Medium Devices (max-width: 768px) */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
-  }
-
+  /* Hamburger menu styles */
   .header__list {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .main__title {
-    font-size: 36px;
-    margin: 0 0 40px 20px;
-  }
-
-  .main__text-box {
-    margin: 0 20px;
-  }
-
-  .main__img {
-    position: relative;
-    width: 100%;
-    height: auto;
-    left: 0;
-    margin-top: 40px;
-  }
-
-  .main__bg-texts {
     display: none;
+    width: 100%;
   }
-
+  
+  .header__list.active {
+    display: flex;
+  }
+  
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .header {
+    position: relative;
+    padding: 15px;
+  }
+  
+  .header__link {
+    margin-bottom: 15px;
+  }
+  
+  /* Education and Experience cards */
   .education__card,
-  .education__card-item {
-    min-width: 100%;
-    padding: 20px;
+  .education__card-item,
+  .experience__card {
+    min-width: 90%;
+    margin: 0 auto 30px;
+    align-self: center !important;
   }
-
+  
+  /* Projects grid */
   .projects__block {
-    grid-template-columns: 1fr;
+    justify-items: center;
   }
-
-  .about__box {
-    max-width: 100%;
-    margin: 0 20px;
+  
+  .projects__box {
+    max-width: 90%;
   }
-
-  .skills__icons {
-    gap: 30px;
-  }
-
-  .about__content-subtitle {
-    margin: 30px 40px;
-  }
-
-  .contact__info {
-    flex-direction: column;
-    gap: 30px;
-  }
-
+  
+  /* Contact form adjustments */
   .contact__form-box {
-    padding: 0;
+    padding: 0 10px;
   }
 }
 
-/* Small Devices (max-width: 480px) */
 @media (max-width: 480px) {
   .subtitle {
     font-size: 28px;
@@ -720,5 +706,41 @@ body {
     flex-direction: column;
     gap: 10px;
     font-size: 18px;
+  }
+
+  .header {
+    padding: 10px;
+  }
+  
+  .header__dropdown {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .education__card,
+  .education__card-item,
+  .experience__card {
+    padding: 15px;
+    min-width: 95%;
+  }
+  
+  .projects__box {
+    max-width: 95%;
+  }
+  
+  .about__content-subtitle {
+    margin: 20px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .about__box-text,
+  .about__box-subtitle {
+    padding: 0 20px;
+  }
+  
+  .contact__form-box input,
+  .contact__form-box textarea {
+    padding: 15px;
   }
 }
